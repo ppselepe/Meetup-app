@@ -1,0 +1,11 @@
+ <div class="container-fluid main-container">
+    <div class="logo-container">
+      <img class="logo-image" src="assets/images/meetuplogo.png" >
+    </div>
+    <div class="next-button">
+      <p *ngIf="isSettings" (click)="nextPage()">Next</p>
+      <p *ngIf="!isSettings" (click)="nextPage()">Back</p>
+    </div>
+  </div><br><br>
+
+  <router-outlet></router-outlet>

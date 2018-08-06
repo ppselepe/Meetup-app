@@ -1,0 +1,17 @@
+.category-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  background-color: #ffffff;
+  padding: 10px;
+}
+.category-grid>div {
+  text-align: center;
+  padding:20px 0;
+  font-size: 30px;
+  border-style: solid;
+  border-radius: 5px;
+}
+.panel-body {
+  padding: 0px;
+}
