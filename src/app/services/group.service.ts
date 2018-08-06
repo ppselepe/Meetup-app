@@ -35,7 +35,7 @@ export class GroupService {
    */
   public getGroups(category?: any ): Observable<Array<Group>> {
       let method: string = "groups?";
-      return this.httpClient.get<Array<Group>>('https://cors-anywhere.herokuapp.com/' + this.host+method + "key=62717249b45f1a73551d332646d39&page=20&category_id="+category.id)
+      return this.httpClient.get('https://cors-anywhere.herokuapp.com/' + this.host+method + "key=62717249b45f1a73551d332646d39&page=20&category_id="+category.id)
               .pipe(map(v => {
                   let groups: Array<Group> = [];
                   let groupsjson = v.results;

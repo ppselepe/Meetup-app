@@ -15,3 +15,7 @@
 .panel-body {
   padding: 0px;
 }
+
+.panel-heading {
+  font-size: 9px;
+}

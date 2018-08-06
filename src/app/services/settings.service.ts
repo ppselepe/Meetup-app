@@ -33,7 +33,7 @@ export class SettingsService {
    */
   public getCategories(): Observable<Array<Category>> {
       let method: string = "categories?";
-      return this.httpClient.get<Array<Category>>('https://cors-anywhere.herokuapp.com/' + this.host+method + "key=62717249b45f1a73551d332646d39")
+      return this.httpClient.get('https://cors-anywhere.herokuapp.com/' + this.host+method + "key=62717249b45f1a73551d332646d39")
               .pipe(map(v => {
                   let categories: Array<Category> = [];
                   let categoryJson = v.results;
@@ -50,7 +50,7 @@ export class SettingsService {
    * @param {Category} category being saved into local storage
    */
   public savePreference(category: Category): void {
-    this.localStorage.setItem<Category>('category', category)
+    this.localStorage.setItem('category', category)
         .subscribe(() => {});
   }
 }

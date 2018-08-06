@@ -4,9 +4,8 @@
 
   <form [formGroup]="profileForm"  (ngSubmit)="onSubmit()">
 
-              <div class="row">
-
-        <div  *ngFor="let category of categories " class="radio col-sm-4">
+  <div class="row">
+       <div  *ngFor="let category of categories " class="radio col-sm-4">
           <div class="panel panel-primary">
             <div class="panel-heading"></div>
               <label class="panel-body">
