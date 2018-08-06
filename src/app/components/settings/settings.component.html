@@ -2,35 +2,26 @@
   <ngx-spinner>
   </ngx-spinner>
 
-  <form [formGroup]="profileForm"  (ngSubmit)="onSubmit()">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-  <div class="row">
-       <div  *ngFor="let category of categories " class="radio col-sm-4">
+    <div class="container">
+      <div class="select-category">Select Category</div>
+      <div class="row">
+        <div *ngFor="let category of categories" class="col-sm-4">
           <div class="panel panel-primary">
-            <div class="panel-heading"></div>
-              <label class="panel-body">
-                <!-- <input type="radio" value="fish" name="food" [(ngModel)]="myFood"> -->
-                     <!-- <input type="radio"
-                      name="category.name"
-                      ngModel
-                      [value] = "category.name" >
-                      {{category.name}} -->
-                      <label>
-                         <input type="radio" formControlName="categoryItem" [value] = "category" > {{category.name}}
-                       </label>
-
-
-               </label>
-            <div class="panel-footer"></div>
+            <label class="panel-body">
+              <label>
+                <input type="radio" formControlName="categoryItem" [value]="category"> {{category.name}}
+              </label>
+            </label>
           </div>
         </div>
-
       </div>
-      <div class="row">
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-danger pull-right" [disabled]="!profileForm.valid">Submit</button>
-          </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-danger pull-right" [disabled]="!profileForm.valid">Submit</button>
       </div>
-    </form>
+    </div>
+  </form>
 </div>
-<br>

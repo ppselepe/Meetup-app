@@ -5,9 +5,9 @@
   background-color: #ffffff;
   padding: 10px;
 }
-.category-grid>div {
+.category-grid > div {
   text-align: center;
-  padding:20px 0;
+  padding: 20px 0;
   font-size: 30px;
   border-style: solid;
   border-radius: 5px;
@@ -18,4 +18,9 @@
 
 .panel-heading {
   font-size: 9px;
+  background-color: #f64060;
+  border-color: #f64060;
+}
+.panel-primary {
+  border-color: #f64060;
 }

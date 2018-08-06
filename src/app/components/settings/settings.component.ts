@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-
-import { SettingsService} from "../../services/settings.service";
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { SettingsService } from "../../services/settings.service";
 import { Category } from "../../models/category";
 
-import { FormBuilder } from '@angular/forms';
-import { FormGroup, FormControl } from '@angular/forms';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { FormBuilder } from "@angular/forms";
+import { FormGroup, FormControl } from "@angular/forms";
+import { NgxSpinnerService } from "ngx-spinner";
 
 /**
  * Lists meetUp groups by category and allows for selection of a prefered category.
@@ -14,17 +14,14 @@ import { NgxSpinnerService } from 'ngx-spinner';
  */
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  selector: "app-settings",
+  templateUrl: "./settings.component.html",
+  styleUrls: ["./settings.component.css"]
 })
-
-
 export class SettingsComponent implements OnInit {
-
   private categories: Array<Category>;
   private profileForm = new FormGroup({
-    categoryItem: new FormControl('')
+    categoryItem: new FormControl("")
   });
 
   /**
@@ -33,33 +30,29 @@ export class SettingsComponent implements OnInit {
    * @param {NgxSpinnerService} spinner The NgxSpinnerService being injected
    * @param {FormBuilder} fb The Form FormBuilder being injected
    */
-  constructor(private settingsService:SettingsService,
-              private spinner: NgxSpinnerService,
-              private fb: FormBuilder
-              ) {
+  constructor(private settingsService: SettingsService, private spinner: NgxSpinnerService, private fb: FormBuilder, private router: Router) {
     console.log(window.location.pathname);
   }
 
   ngOnInit() {
     this.spinner.show();
 
-    this.settingsService.getCategories()
-    .subscribe(data =>{
-      this.categories = data;
-    },
+    this.settingsService.getCategories().subscribe(
+      data => {
+        this.categories = data;
+      },
       error => {
-             // this.errorMessage = error;
-            },
-        () => {
-          this.spinner.hide();
-      });
+        // this.errorMessage = error;
+      },
+      () => {
+        this.spinner.hide();
+      }
+    );
   }
-
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
     this.settingsService.savePreference(this.profileForm.value.categoryItem);
+    this.router.navigate(["/groups"]);
   }
-
 }
-
